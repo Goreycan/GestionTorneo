@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+import org.springframework.cglib.core.Local;
+
 import java.time.LocalDate;
 
 @Getter
@@ -43,11 +45,6 @@ public class Torneo {
     @OneToMany(mappedBy = "torneo", cascade = CascadeType.ALL)
     private List<Ronda> rondas;
 
-    @ManyToMany
-    @JoinTable(
-        name = "jueces",
-        joinColumns = @JoinColumn(name = "torneo_id"),
-        inverseJoinColumns = @JoinColumn(name = "juez_id")
-    )
-    private List<Juez> jueces;
+    @OneToMany(mappedBy = "torneo", cascade = CascadeType.ALL)
+    private List<Jueces> jueces;
 }
