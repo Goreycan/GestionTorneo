@@ -1,5 +1,7 @@
 package com.GestionTorneo.model;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
@@ -31,8 +33,7 @@ public class Jugador {
     @OneToMany(mappedBy = "jugador") //relación para ver en qué torneos ha participado el ugador
     private List<Participacion> participaciones;
 
-
-    @ManyToOne
-    @JoinColumn(name = "jugador_id", nullable = false)
-    private Jugador jugador; //crea una columna ,que servirá como Llave Foránea ;)
+    @OneToMany(mappedBy = "jugador")
+    private List<Mazo> mazos;
+   
 }

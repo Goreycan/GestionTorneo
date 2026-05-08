@@ -29,8 +29,11 @@ public class Mazo {
     @JoinColumn(name = "jugador_id", nullable = false)
     private Jugador jugador;
 
-    @OneToMany(mappedBy = "mazo") //porsi se repite el mazo??
-    private List<Participacion> participaciones;
+    @OneToMany(mappedBy = "mazo")
+    private List<Cartas> cartas;
+
+    //@OneToMany(mappedBy = "mazo") //porsi se repite el mazo??
+    //private List<Participacion> participaciones;
 
     
 }
