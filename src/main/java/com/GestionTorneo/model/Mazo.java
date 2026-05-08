@@ -25,10 +25,12 @@ public class Mazo {
     @Column(nullable = false, length = 50)
     private String nombre;
 
+    
     @ManyToOne
     @JoinColumn(name = "jugador_id", nullable = false)
     private Jugador jugador;
 
+    
     @OneToMany(mappedBy = "mazo") //porsi se repite el mazo??
     private List<Participacion> participaciones;
 
